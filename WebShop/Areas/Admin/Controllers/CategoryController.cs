@@ -21,7 +21,7 @@ namespace ShopWeb.Areas.Admin.Controllers
         {
             var categories = _dbContext.Category.ToList();
 
-            var userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            //var userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             //@ViewBag.CurrentUserId = userId;
 
             return View(categories);
@@ -52,8 +52,11 @@ namespace ShopWeb.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Create(Category category)
         {
+            string userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            //@ViewBag.CurrentUserId = userId;
             if (ModelState.IsValid)
             {
+                category.ApplicationUser = userId;
                 _dbContext.Category.Add(category);
                 _dbContext.SaveChanges();
 

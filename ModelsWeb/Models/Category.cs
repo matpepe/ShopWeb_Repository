@@ -1,5 +1,4 @@
-﻿using ModelWeb.Administration;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ModelWeb.Models
@@ -15,7 +14,8 @@ namespace ModelWeb.Models
 
         [ForeignKey("CategoryId")]
         public List<ProductCategory>? ProductCategories { get; set; }
+
         [ForeignKey("UserId")]
-        public virtual ApplicationUser? ApplicationUser { get; set; }
+        public string? ApplicationUser { get; set; }
     }
 }
