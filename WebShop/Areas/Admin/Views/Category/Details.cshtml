@@ -1,0 +1,22 @@
+﻿@model ModelWeb.Models.Category
+
+<h1>Category details</h1>
+
+<hr />
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+    </dl>
+</div>
+<br />
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+    <br />
+    <a asp-action="Index">Back to category list</a>
+</div>

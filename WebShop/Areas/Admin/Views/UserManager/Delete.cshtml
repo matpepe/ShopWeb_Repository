@@ -1,0 +1,30 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using ModelWeb.Administration;
+@model UserRolesViewModel
+
+<form method="post" asp-action="DeletePOST">
+    <input asp-for="UserId" hidden/>
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Delete Role</h2>
+            <hr />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="FirstName"></label>
+            <input asp-for="FirstName" disabled class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-danger" style="width:150px">Delete</button>
+
+        <a asp-controller="RoleManager" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            Back to Table
+        </a>
+
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

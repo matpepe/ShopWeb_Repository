@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Product>
+
+<h1>Product Home Table</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+  
+</div>
+
+@if (TempData["Message"] != null)
+{
+    <div class="row text-center">
+        <div class="col-md-12">
+            <div class="alert alert-warning" role="alert">
+                @TempData["Message"]
+            </div>
+        </div>
+    </div>
+}
+
+@if (TempData["Success"] != null)
+{
+    <div class="row text-center">
+        <div class="col-md-12">
+            <div class="alert alert-success" role="alert">
+                @TempData["Success"]
+            </div>
+        </div>
+    </div>
+}
+*@

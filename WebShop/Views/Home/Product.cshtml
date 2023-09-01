@@ -1,0 +1,75 @@
+﻿@model List<Product>
+
+<h3>Product list</h3>
+
+<div class="row">
+    <div class="col-md-2">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Filter by category
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+            @foreach (var item in ViewBag.Categories)
+            {
+                <li>
+                    <a class="dropdown-item" asp-action="Product" asp-route-categoryId="@item.Value">
+                        @item.Text
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="col-md-2">
+        <a asp-action="Product" class="btn btn-warning">Reset filters</a>
+    </div>
+</div>
+
+
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-4 mt-3">
+            <div class="card">
+                <div class="card-header text-center">
+                    @if (string.IsNullOrEmpty(item.ImageName))
+                    {
+                        <img src="@("~/Images/no-image.png")" asp-append-version="true" width="250px" height="250px" />
+                    }
+                    else
+                    {
+                        <img src="@("~/Images/"+item.ImageName)" asp-append-version="true" width="250px" height="250px"/>
+
+                    }
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">@item.Title</h5>
+                    <p class="card-text">@item.Description</p>
+                    <table class="table table-condensed table-hover">
+                        <thead>
+                            <tr>
+                                <th>Price</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    @item.Price EUR
+                                </td>
+                                <td>
+                                    <form method="post" asp-controller="Cart" asp-action="AddToCart">
+                                        <input type="hidden" name="productId" value="@item.Id" />
+                                        <input type="submit" class="btn btn-success btn-sm" value="Add to cart" />
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    }
+
+</div>

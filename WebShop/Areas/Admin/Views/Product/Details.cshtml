@@ -1,0 +1,62 @@
+﻿@model ModelWeb.Models.Product
+
+<h1>Product details</h1>
+
+<hr />
+<div class="row">
+    <dl class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Title)
+    </dl>
+    <dl class="col-sm-10">
+        @Html.DisplayFor(model => model.Title)
+    </dl>
+    <dl class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Description)
+    </dl>
+    <dl class="col-sm-10">
+        @Html.DisplayFor(model => model.Description)
+    </dl>
+    <dl class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Price)
+    </dl>
+    <dl class="col-sm-10">
+        @Html.DisplayFor(model => model.Price)
+    </dl>
+    <dl class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Quantity)
+    </dl>
+    <dl class="col-sm-10">
+        @Html.DisplayFor(model => model.Quantity)
+    </dl>
+    <dl class="col-sm-4 mt-3">
+        @if (string.IsNullOrEmpty(Model.ImageName))
+        {
+            <img src="@("~/Images/no-image.png")" asp-append-version="true" width="350px" height="250px" />
+        }
+        else
+        {
+            <img src="@("~/Images/"+Model.ImageName)" asp-append-version="true" width="350px" height="250px" />
+        }
+    </dl>
+
+    <div class="form-group">
+        <button>
+            <a asp-action="Edit" asp-route-id=@Model.Id>Edit</a> |
+        </button>
+    </div>
+    <br />
+
+    <div class="form-group">
+        <a asp-action="Index">Back to product list</a>
+    </div>
+</div>
+
+
+
+
+@*<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+    <a asp-action="Index">Back to product list</a>
+</div>
+*@
+

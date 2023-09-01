@@ -1,0 +1,36 @@
+﻿@using ModelWeb.Administration
+@model IEnumerable<ApplicationUser>
+
+<h1>List of users</h1>
+<hr />
+<div class="btn btn-outline-success">
+    <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">Register</a>
+</div>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.Email</td>
+                <td>@user.FirstName</td>
+                <td>@user.LastName</td>
+                <td>
+                    <a class="btn btn-warning" asp-action="Update" asp-route-id="@user.Id">Update</a> #
+                    <a class="btn btn-primary" asp-action="Details" asp-route-id=@user.Id>Details</a> #
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@user.Id">Delete</a> #
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

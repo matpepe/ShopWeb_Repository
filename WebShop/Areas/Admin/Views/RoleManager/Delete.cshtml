@@ -1,0 +1,27 @@
+﻿@*@using Microsoft.AspNetCore.Identity
+@using ModelWeb.Administration;
+
+@model IdentityRole
+
+<h1>Delete product</h1>
+<h4>Are you sure you want to delete your product?</h4>
+
+<hr />
+<div class="row">
+    <dl class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Name)
+    </dl>
+    <dl class="col-sm-10">
+        @Html.DisplayFor(model => model.Name)
+    </dl>
+</div>
+
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <input type="submit" value="Delete" class="btn btn-danger" />
+</form>
+
+<div>
+    <a asp-action="Index">Back to product list</a>
+</div>*@

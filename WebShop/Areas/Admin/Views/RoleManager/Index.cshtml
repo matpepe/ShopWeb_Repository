@@ -1,0 +1,67 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using ModelWeb.Administration;
+
+
+@model IEnumerable<IdentityRole>
+
+<h1>Role manager</h1>
+<hr />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Role</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var role in Model)
+        {
+            <tr>
+                <td>@role.Id</td>
+                <td>@role.Name</td>
+                <td>
+                    <form method="post" asp-area="Admin" asp-controller="RoleManager" asp-action="Delete" asp-route-id="@role.Id">
+                        <button type="submit" class="btn btn-danger" style="width:150px">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                <strong>Add new Role</strong>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <form method="post" asp-action="AddRole" asp-controller="RoleManager">
+                    <div class="w-75 input-group">
+                        <input name="roleName" class="form-control w-25" />
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="input-group-btn">
+                            <button class="btn btn-success">
+                                ADD
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+}

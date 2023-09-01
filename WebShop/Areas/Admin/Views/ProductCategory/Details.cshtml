@@ -1,0 +1,24 @@
+﻿
+@model ModelWeb.Models.ProductCategory
+
+<h1>Details of product category</h1>
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            Category
+        </dt>
+        <dt class="col-sm-10">
+            @Model.CategoryTitle
+        </dt>
+        <dt class="col-sm-2">
+            Product
+        </dt>
+        <dt class="col-sm-10">
+            @Model.ProductTitle
+        </dt>
+    </dl>
+</div>
+<br />
+<div>
+    <a asp-action="Index" asp-route-productId="@Model.ProductId">Back to list</a>
+</div>

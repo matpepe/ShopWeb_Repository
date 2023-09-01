@@ -1,0 +1,52 @@
+﻿@using ModelWeb.Administration
+@model ApplicationUser
+
+<h1>User details</h1>
+
+<hr />
+<div class="row">
+    <dl class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Id)
+    </dl>
+    <dl class="col-sm-10">
+        @Html.DisplayFor(model => model.Id)
+    </dl>
+    <dl class="col-sm-2">
+        @Html.DisplayNameFor(model => model.FirstName)
+    </dl>
+    <dl class="col-sm-10">
+        @Html.DisplayFor(model => model.FirstName)
+    </dl>
+    <dl class="col-sm-2">
+        @Html.DisplayNameFor(model => model.LastName)
+    </dl>
+    <dl class="col-sm-10">
+        @Html.DisplayFor(model => model.LastName)
+    </dl>
+    <dl class="col-sm-2">
+        @Html.DisplayNameFor(model => model.EmailConfirmed)
+    </dl>
+    <dl class="col-sm-10">
+        @Html.DisplayFor(model => model.EmailConfirmed)
+    </dl>
+</div>
+<hr />
+<div class="row">
+    <div class="form-group">
+        <a asp-action="Index">Back to User list</a>
+    </div>
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
+
+@*<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+    <a asp-action="Index">Back to product list</a>
+</div>
+*@
+
