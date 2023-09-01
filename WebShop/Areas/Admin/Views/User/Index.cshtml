@@ -3,8 +3,8 @@
 
 <h1>List of users</h1>
 <hr />
-<div class="btn btn-outline-success">
-    <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">Register</a>
+<div>
+    <a class="btn btn-success" asp-area="Identity" asp-page="/Account/Register">Register</a>
 </div>
 <br />
 <table class="table">
@@ -26,8 +26,8 @@
                 <td>@user.FirstName</td>
                 <td>@user.LastName</td>
                 <td>
-                    <a class="btn btn-warning" asp-action="Update" asp-route-id="@user.Id">Update</a> #
                     <a class="btn btn-primary" asp-action="Details" asp-route-id=@user.Id>Details</a> #
+                    <a class="btn btn-warning" asp-action="Update" asp-route-id="@user.Id">Edit</a> #
                     <a class="btn btn-danger" asp-action="Delete" asp-route-id="@user.Id">Delete</a> #
                 </td>
             </tr>

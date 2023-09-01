@@ -18,7 +18,7 @@ namespace ModelWeb.Models
         public decimal Quantity { get; set; }
         [Required]
         [Column(TypeName = "decimal(10,2)"), Range(1, 2000000)]
-        public decimal Price { get; set; }
+        public decimal Price { get; set; } = 0;
 
         public string? ImageName { get; set; }
 

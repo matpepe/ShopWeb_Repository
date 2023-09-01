@@ -168,6 +168,14 @@ namespace DataAccessWeb.Data
             .HasData(new Category() { Id = 5, Title = "Unknown" });
             #endregion
 
+            #region PrCat
+            builder.Entity<ProductCategory>()
+                .HasData(new ProductCategory() { Id = 1, CategoryId = 1, ProductId = 9 });
+            builder.Entity<ProductCategory>()
+                .HasData(new ProductCategory() { Id = 2, CategoryId = 1, ProductId = 7 });
+            builder.Entity<ProductCategory>()
+                .HasData(new ProductCategory() { Id = 3, CategoryId = 1, ProductId = 4 });
+            #endregion
 
         }
 
