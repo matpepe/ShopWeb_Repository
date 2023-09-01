@@ -14,15 +14,17 @@
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input class="btn btn-success" type="submit" value="Create" />
+                <input type="submit" value="Create" class="btn btn-success" />
+                &nbsp; &nbsp;
+                <a class="btn btn-primary" asp-action="Index">Back to product list</a>
             </div>
         </form>
     </div>
 </div>
-
-<div>
+<br />
+@*<div>
     <a class="btn btn-primary" asp-action="Index">Back to category list</a>
-</div>
+</div>*@
 
 @section Scripts{
     @{
