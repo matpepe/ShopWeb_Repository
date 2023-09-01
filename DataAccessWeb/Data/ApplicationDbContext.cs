@@ -20,7 +20,7 @@ namespace DataAccessWeb.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-
+            #region IdentityRole
             builder.Entity<IdentityRole>()
                 .HasData(new IdentityRole() { Name = "Admin", NormalizedName = "ADMIN" });
 
@@ -29,7 +29,9 @@ namespace DataAccessWeb.Data
 
             builder.Entity<IdentityRole>()
                 .HasData(new IdentityRole() { Name = "User", NormalizedName = "User" });
+            #endregion
 
+            #region TableNames
             builder.Entity<IdentityRole>(entity =>
             {
                 entity.ToTable(name: "Role");
@@ -54,6 +56,17 @@ namespace DataAccessWeb.Data
             {
                 entity.ToTable("UserTokens");
             });
+            #endregion
+
+            builder.Entity<Product>()
+                .HasData(new Product()
+                {
+                    Title = "",
+                    Description = "",
+                    Price = 20,
+                    Quantity = 3
+                });
+
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
