@@ -22,3 +22,9 @@
     <a class="btn btn-primary" asp-action="Index">Back to user list</a>
 </div>
 
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+}

@@ -38,20 +38,11 @@
             <img src="@("~/Images/"+Model.ImageName)" asp-append-version="true" width="350px" height="250px" />
         }
     </dl>
-
     <div class="form-group">
-        <a class="btn btn-warning" asp-action="Edit" asp-route-id=@Model.Id>Edit</a> |
-        <br />
+        <a class="btn btn-warning" asp-action="Edit" asp-route-id=@Model.Id>Edit</a>
+        &nbsp; &nbsp;
         <a class="btn btn-primary" asp-action="Index">Back to product list</a>
     </div>
 </div>
 
-
-
-
-@*<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-    <a asp-action="Index">Back to product list</a>
-</div>
-*@
 

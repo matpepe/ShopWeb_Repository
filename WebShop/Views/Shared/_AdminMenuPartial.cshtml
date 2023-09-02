@@ -23,12 +23,10 @@
                 <li>
                     <a class="dropdown-item" asp-area="Admin" asp-controller="UserManager" asp-action="Index">User roles</a>
                 </li>
+                <li><a class="dropdown-item" asp-area="Admin"></a>&nbsp;&nbsp;  ----------------</li>
                 <li>
                     <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">Register</a>
                 </li>
-@*                <li>
-                    <a class="dropdwon-item @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">Profile</a>
-                </li>*@
             </ul>
         </div>
     </li>
@@ -39,15 +37,13 @@
                 Admin
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-@*            <li>
-                <a class="dropdown-item" asp-area="Admin" asp-controller="ProductCategory" asp-action="Index">Product Category</a>
-            </li>*@
             <li>
                 <a class="dropdown-item" asp-area="Admin" asp-controller="Product" asp-action="Index">Products Table</a>
             </li>
             <li>
                 <a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index">Categories</a>
             </li>
+                <li><a class="dropdown-item" asp-area="Admin"></a>&nbsp;&nbsp;  ----------------</li>
             <li>
                 <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Product">Shop Product Listing</a>
             </li>

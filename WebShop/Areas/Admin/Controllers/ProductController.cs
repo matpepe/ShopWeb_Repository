@@ -23,6 +23,7 @@ namespace WebShop.Areas.Admin.Controllers
             return View(products);
         }
 
+        [AllowAnonymous]
         public IActionResult Details(int id)
         {
             if (id == 0) return NotFound();
@@ -108,6 +109,7 @@ namespace WebShop.Areas.Admin.Controllers
             return View(product);
         }
 
+        // impl IRepo pattern za IAc metode 
         [HttpPost, ActionName("Delete")]
         public IActionResult DeleteConfirmed(int id)
         {

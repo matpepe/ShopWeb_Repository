@@ -7,6 +7,7 @@ using System.Diagnostics;
 
 namespace ShopWeb.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -18,7 +19,6 @@ namespace ShopWeb.Controllers
             _dbContext = dbContext;
         }
 
-        [AllowAnonymous]
         public IActionResult Index()
         {
             var products = _dbContext.Product.ToList();
@@ -26,14 +26,12 @@ namespace ShopWeb.Controllers
             return View(products);
         }
 
-        [Authorize]
         public IActionResult Privacy()
         {
             return View();
         }
 
-        [Authorize]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public IActionResult Product(int? categoryId)
         {
             List<Product> products = _dbContext.Product.ToList();
