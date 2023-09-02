@@ -11,7 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopAPI", "ShopAPI\ShopAPI.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessWeb", "DataAccessWeb\DataAccessWeb.csproj", "{BC1C742B-10A3-40B1-A4FD-E779F2206A28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestShopWeb", "TestShopWeb\TestShopWeb.csproj", "{F2BE2A48-6C59-4CF4-937A-CF9999F97483}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestShopWeb", "TestShopWeb\TestShopWeb.csproj", "{F2BE2A48-6C59-4CF4-937A-CF9999F97483}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{5040667D-AA5C-40BE-9929-38BB079B94C7}"
+	ProjectSection(SolutionItems) = preProject
+		InfoAdditional.txt = InfoAdditional.txt
+		InsertScript.sql = InsertScript.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
