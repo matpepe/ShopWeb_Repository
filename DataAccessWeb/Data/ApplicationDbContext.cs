@@ -20,7 +20,7 @@ namespace DataAccessWeb.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-
+            #region IdentityRole
             builder.Entity<IdentityRole>()
                 .HasData(new IdentityRole() { Name = "Admin", NormalizedName = "ADMIN" });
 
@@ -29,7 +29,9 @@ namespace DataAccessWeb.Data
 
             builder.Entity<IdentityRole>()
                 .HasData(new IdentityRole() { Name = "User", NormalizedName = "User" });
+            #endregion
 
+            #region TableNames
             builder.Entity<IdentityRole>(entity =>
             {
                 entity.ToTable(name: "Role");
@@ -54,6 +56,127 @@ namespace DataAccessWeb.Data
             {
                 entity.ToTable("UserTokens");
             });
+            #endregion
+
+            #region Products10
+            builder.Entity<Product>()
+                .HasData(new Product()
+                {
+                    Id = 1,
+                    Title = "T-Shirt",
+                    Description = "Dark Red",
+                    Price = 21,
+                    Quantity = 5
+                });
+            builder.Entity<Product>()
+                .HasData(new Product()
+                {
+                    Id = 2,
+                    Title = "Pen",
+                    Description = "The GoldOne",
+                    Price = 300,
+                    Quantity = 2
+                });
+            builder.Entity<Product>()
+                .HasData(new Product()
+                {
+                    Id = 3,
+                    Title = "Wine",
+                    Description = "Red Wine with 20% alcohol",
+                    Price = 115,
+                    Quantity = 45
+                });
+            builder.Entity<Product>()
+                .HasData(new Product()
+                {
+                    Id = 4,
+                    Title = "Azure License",
+                    Description = "Full Subscription on Azure platform (License)",
+                    Price = 2500,
+                    Quantity = 3
+                });
+            builder.Entity<Product>()
+                .HasData(new Product()
+                {
+                    Id = 5,
+                    Title = "XXL Shirt",
+                    Description = "Super GREEN",
+                    Price = 20,
+                    Quantity = 3
+                });
+            builder.Entity<Product>()
+                .HasData(new Product()
+                {
+                    Id = 6,
+                    Title = "Fork",
+                    Description = "Ancient fork from China",
+                    Price = 33,
+                    Quantity = 2000
+                });
+            builder.Entity<Product>()
+                .HasData(new Product()
+                {
+                    Id = 7,
+                    Title = "RedHat License",
+                    Description = "license for RedHat distro in 15% OFF , def. nije piratizirano",
+                    Price = 15,
+                    Quantity = 5498
+                });
+            builder.Entity<Product>()
+                .HasData(new Product()
+                {
+                    Id = 8,
+                    Title = "XXL Hat",
+                    Description = "Super Big Hat for Winter",
+                    Price = 15,
+                    Quantity = 51
+                });
+            builder.Entity<Product>()
+                .HasData(new Product()
+                {
+                    Id = 9,
+                    Title = "Nvidia 200NN",
+                    Description = "GPU Nvidia",
+                    Price = 475,
+                    Quantity = 6
+                });
+            builder.Entity<Product>()
+                .HasData(new Product()
+                {
+                    Id = 10,
+                    Title = "Carpet",
+                    Description = "Big Green Carpet",
+                    Price = 190,
+                    Quantity = 3
+                });
+            #endregion
+
+            #region Categories3
+            builder.Entity<Category>()
+            .HasData(new Category() { Id = 1, Title = "IT" });
+
+            builder.Entity<Category>()
+            .HasData(new Category() { Id = 2, Title = "Goods" });
+
+            builder.Entity<Category>()
+            .HasData(new Category() { Id = 3, Title = "Kitchen stuff" });
+
+            builder.Entity<Category>()
+            .HasData(new Category() { Id = 4, Title = "Limited Edition" });
+
+            builder.Entity<Category>()
+            .HasData(new Category() { Id = 5, Title = "Unknown" });
+            #endregion
+
+            #region PrCat
+            builder.Entity<ProductCategory>()
+                .HasData(new ProductCategory() { Id = 1, CategoryId = 1, ProductId = 9 });
+            builder.Entity<ProductCategory>()
+                .HasData(new ProductCategory() { Id = 2, CategoryId = 1, ProductId = 7 });
+            builder.Entity<ProductCategory>()
+                .HasData(new ProductCategory() { Id = 3, CategoryId = 1, ProductId = 4 });
+            #endregion
+
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

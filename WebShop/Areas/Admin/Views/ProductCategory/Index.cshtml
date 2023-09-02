@@ -7,40 +7,6 @@
         Add new category to product
     </a>
 </p>
-
 <hr />
-
-@*<table class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Product</th>
-            <th>Category</th>
-            <th>CreatedBy</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.ProductTitle</td>
-                <td>@item.CategoryTitle</td>
-                <td>@ViewBag.CurrentUserId</td>
-
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" asp-route-productId="@item.ProductId">
-                        Edit
-                    </a> # 
-                    <a asp-action="Delete" asp-route-id="@item.Id">
-                        Delete
-                    </a>
-                </td>
-            </tr>
-        }
-    </tbody>
-
-</table>*@
-
-<a asp-controller="Product" asp-action="Index">Back to products</a>
+<br />
+<a class="btn btn-primary" asp-controller="Product" asp-action="Index">Back to products</a>

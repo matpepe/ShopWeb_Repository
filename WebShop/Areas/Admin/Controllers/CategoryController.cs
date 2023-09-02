@@ -21,8 +21,8 @@ namespace ShopWeb.Areas.Admin.Controllers
         {
             var categories = _dbContext.Category.ToList();
 
-            var userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            @ViewBag.CurrentUserId = userId;
+            //var userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            //@ViewBag.CurrentUserId = userId;
 
             return View(categories);
         }
@@ -52,9 +52,11 @@ namespace ShopWeb.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Create(Category category)
         {
-            // model state provjerava ispravnost modela (u ovom slučaju category)
+            string userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            //@ViewBag.CurrentUserId = userId;
             if (ModelState.IsValid)
             {
+                category.ApplicationUser = userId;
                 _dbContext.Category.Add(category);
                 _dbContext.SaveChanges();
 
@@ -115,7 +117,6 @@ namespace ShopWeb.Areas.Admin.Controllers
 
         [HttpPost]
         [ActionName("Delete")]
-        // HTTP POST /Category/DeleteConfirmed
         public IActionResult DeleteConfirmed(int id)
         {
             if (id == 0)

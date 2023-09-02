@@ -4,6 +4,7 @@ using DataAccessWeb.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessWeb.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230901182302_Db_Objects_Prod_Categ")]
+    partial class Db_Objects_Prod_Categ
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,22 +53,22 @@ namespace DataAccessWeb.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ba2c7d93-d07a-46cc-b0be-fd7487dd9f85",
-                            ConcurrencyStamp = "2313732b-4df0-4c50-ba96-46eda6482cad",
+                            Id = "03d4768c-c486-46b6-a911-58aa8b8b4665",
+                            ConcurrencyStamp = "32523d23-fb04-4ebe-b0cd-9f84f636594e",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "6ee88484-744d-4d94-b677-032abadf79da",
-                            ConcurrencyStamp = "3e692dc0-bcc0-4351-be93-19b7f466ea0d",
+                            Id = "a90c6daa-1cba-4d02-b168-9ccfa6f3cf97",
+                            ConcurrencyStamp = "6b3570b4-c169-43cf-8a64-551df01df107",
                             Name = "Moderator",
                             NormalizedName = "Moderator"
                         },
                         new
                         {
-                            Id = "9826599c-c7de-4a99-a05e-1c801612afdc",
-                            ConcurrencyStamp = "8f706cc6-d83f-449c-9782-95249bcde97a",
+                            Id = "ca95cfde-d98c-4705-8c94-a57c871b0cca",
+                            ConcurrencyStamp = "63b562c9-1349-4c21-9d26-99d08400e0f6",
                             Name = "User",
                             NormalizedName = "User"
                         });
@@ -273,15 +275,17 @@ namespace DataAccessWeb.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("ApplicationUser")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Category");
 
@@ -355,7 +359,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 37, 47, 586, DateTimeKind.Local).AddTicks(1592),
+                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 23, 2, 681, DateTimeKind.Local).AddTicks(2002),
                             Description = "Dark Red",
                             Price = 21m,
                             Quantity = 5m,
@@ -364,7 +368,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 37, 47, 586, DateTimeKind.Local).AddTicks(1641),
+                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 23, 2, 681, DateTimeKind.Local).AddTicks(2057),
                             Description = "The GoldOne",
                             Price = 300m,
                             Quantity = 2m,
@@ -373,7 +377,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 37, 47, 586, DateTimeKind.Local).AddTicks(1651),
+                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 23, 2, 681, DateTimeKind.Local).AddTicks(2067),
                             Description = "Red Wine with 20% alcohol",
                             Price = 115m,
                             Quantity = 45m,
@@ -382,7 +386,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 37, 47, 586, DateTimeKind.Local).AddTicks(1661),
+                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 23, 2, 681, DateTimeKind.Local).AddTicks(2077),
                             Description = "Full Subscription on Azure platform (License)",
                             Price = 2500m,
                             Quantity = 3m,
@@ -391,7 +395,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 37, 47, 586, DateTimeKind.Local).AddTicks(1671),
+                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 23, 2, 681, DateTimeKind.Local).AddTicks(2087),
                             Description = "Super GREEN",
                             Price = 20m,
                             Quantity = 3m,
@@ -400,7 +404,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 37, 47, 586, DateTimeKind.Local).AddTicks(1682),
+                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 23, 2, 681, DateTimeKind.Local).AddTicks(2098),
                             Description = "Ancient fork from China",
                             Price = 33m,
                             Quantity = 2000m,
@@ -409,7 +413,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 37, 47, 586, DateTimeKind.Local).AddTicks(1692),
+                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 23, 2, 681, DateTimeKind.Local).AddTicks(2108),
                             Description = "license for RedHat distro in 15% OFF , def. nije piratizirano",
                             Price = 15m,
                             Quantity = 5498m,
@@ -418,7 +422,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 37, 47, 586, DateTimeKind.Local).AddTicks(1702),
+                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 23, 2, 681, DateTimeKind.Local).AddTicks(2118),
                             Description = "Super Big Hat for Winter",
                             Price = 15m,
                             Quantity = 51m,
@@ -427,7 +431,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 37, 47, 586, DateTimeKind.Local).AddTicks(1712),
+                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 23, 2, 681, DateTimeKind.Local).AddTicks(2127),
                             Description = "GPU Nvidia",
                             Price = 475m,
                             Quantity = 6m,
@@ -436,7 +440,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 37, 47, 586, DateTimeKind.Local).AddTicks(1722),
+                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 23, 2, 681, DateTimeKind.Local).AddTicks(2138),
                             Description = "Big Green Carpet",
                             Price = 190m,
                             Quantity = 3m,
@@ -516,6 +520,15 @@ namespace DataAccessWeb.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ModelWeb.Models.Category", b =>
+                {
+                    b.HasOne("ModelWeb.Administration.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("ApplicationUser");
                 });
 
             modelBuilder.Entity("ModelWeb.Models.Product", b =>

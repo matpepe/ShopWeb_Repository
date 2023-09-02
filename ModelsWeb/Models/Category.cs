@@ -9,8 +9,13 @@ namespace ModelWeb.Models
         [Required]
         [StringLength(200, MinimumLength = 2)]
         public string Title { get; set; }
+        [Required, NotMapped]
+        public bool Active { get; set; } = true;
 
         [ForeignKey("CategoryId")]
         public List<ProductCategory>? ProductCategories { get; set; }
+
+        [ForeignKey("UserId")]
+        public string? ApplicationUser { get; set; }
     }
 }

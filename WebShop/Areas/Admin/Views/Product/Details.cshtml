@@ -40,14 +40,9 @@
     </dl>
 
     <div class="form-group">
-        <button>
-            <a asp-action="Edit" asp-route-id=@Model.Id>Edit</a> |
-        </button>
-    </div>
-    <br />
-
-    <div class="form-group">
-        <a asp-action="Index">Back to product list</a>
+        <a class="btn btn-warning" asp-action="Edit" asp-route-id=@Model.Id>Edit</a> |
+        <br />
+        <a class="btn btn-primary" asp-action="Index">Back to product list</a>
     </div>
 </div>
 
