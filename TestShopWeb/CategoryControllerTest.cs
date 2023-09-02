@@ -11,7 +11,7 @@ namespace TestShopWeb
         public void Index_ReturnsAViewResult_WithListOfPeople()
         {
             // Arrange
-            var controller = new CategoryController();
+            var controller = new CategoryController(null);
             // Act
             var result = controller.Index();
             // Assert

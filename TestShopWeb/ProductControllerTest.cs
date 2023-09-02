@@ -12,7 +12,7 @@ namespace TestShopWeb
         public void Edit_ReturnsNotFoundResult_WhenIdIsZero()
         {
             // Arrange
-            var controller = new ProductController();
+            var controller = new ProductController(null);
             int id = 0;
             // Act
             var result = controller.Edit(id);
@@ -25,7 +25,7 @@ namespace TestShopWeb
         public void Details_GetProductDetails_WhenModelIsNotNull()
         {
             // Arrange
-            var controller = new ProductController();
+            var controller = new ProductController(null);
             int id = 2;
             // Act
             var result = controller.Edit(id);
@@ -40,7 +40,7 @@ namespace TestShopWeb
         public void Add_AddsProductAndReturnsARedirect_WhenModelIsNotNull()
         {
             // Arrange
-            var controller = new ProductController();
+            var controller = new ProductController(null);
             Product p = new Product()
             {
                 Id = 1,
