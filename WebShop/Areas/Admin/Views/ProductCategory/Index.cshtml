@@ -3,10 +3,12 @@
 <h1>Product Categories</h1>
 
 <p>
-    <a asp-action="Create" asp-route-productId=@ViewBag.ProductId>
+    <a class="btn btn-success" asp-action="Create" asp-route-productId=@ViewBag.ProductId>
         Add new category to product
     </a>
 </p>
 <hr />
 <br />
-<a class="btn btn-primary" asp-controller="Product" asp-action="Index">Back to products</a>
+<p>
+    <a class="btn btn-primary" asp-controller="Product" asp-action="Index">Back to products</a>
+</p>

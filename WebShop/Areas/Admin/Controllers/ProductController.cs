@@ -15,6 +15,7 @@ namespace WebShop.Areas.Admin.Controllers
         {
             _dbContext = dbContext;
         }
+
         public IActionResult Index()
         {
             var products = _dbContext.Product.ToList();

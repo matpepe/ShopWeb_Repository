@@ -20,6 +20,7 @@ namespace DataAccessWeb.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
             #region IdentityRole
             builder.Entity<IdentityRole>()
                 .HasData(new IdentityRole() { Name = "Admin", NormalizedName = "ADMIN" });
