@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessWeb.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230901183747_Db2")]
-    partial class Db2
+    [Migration("20230903193440_Rem")]
+    partial class Rem
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,22 +53,22 @@ namespace DataAccessWeb.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ba2c7d93-d07a-46cc-b0be-fd7487dd9f85",
-                            ConcurrencyStamp = "2313732b-4df0-4c50-ba96-46eda6482cad",
+                            Id = "41f5bf7d-b497-449c-a522-da57f29c9b50",
+                            ConcurrencyStamp = "bb775fea-e63c-4bf7-8630-2093e4f8a631",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "6ee88484-744d-4d94-b677-032abadf79da",
-                            ConcurrencyStamp = "3e692dc0-bcc0-4351-be93-19b7f466ea0d",
+                            Id = "37078311-af2e-4adf-bf46-c2cb6c23cfdd",
+                            ConcurrencyStamp = "427748db-a867-470b-936b-91cbf18e3c95",
                             Name = "Moderator",
                             NormalizedName = "Moderator"
                         },
                         new
                         {
-                            Id = "9826599c-c7de-4a99-a05e-1c801612afdc",
-                            ConcurrencyStamp = "8f706cc6-d83f-449c-9782-95249bcde97a",
+                            Id = "3a7190e6-fa8e-4e8c-a924-c907af0b96a2",
+                            ConcurrencyStamp = "bdccdeb0-9894-4506-8381-a5e7b96d1c15",
                             Name = "User",
                             NormalizedName = "User"
                         });
@@ -323,7 +323,7 @@ namespace DataAccessWeb.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<DateTime>("CreatedDatetime")
+                    b.Property<DateTime?>("CreatedDatetime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
@@ -357,7 +357,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 37, 47, 586, DateTimeKind.Local).AddTicks(1592),
+                            CreatedDatetime = new DateTime(2023, 9, 3, 21, 34, 40, 37, DateTimeKind.Local).AddTicks(1440),
                             Description = "Dark Red",
                             Price = 21m,
                             Quantity = 5m,
@@ -366,7 +366,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 37, 47, 586, DateTimeKind.Local).AddTicks(1641),
+                            CreatedDatetime = new DateTime(2023, 9, 3, 21, 34, 40, 37, DateTimeKind.Local).AddTicks(1504),
                             Description = "The GoldOne",
                             Price = 300m,
                             Quantity = 2m,
@@ -375,7 +375,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 37, 47, 586, DateTimeKind.Local).AddTicks(1651),
+                            CreatedDatetime = new DateTime(2023, 9, 3, 21, 34, 40, 37, DateTimeKind.Local).AddTicks(1518),
                             Description = "Red Wine with 20% alcohol",
                             Price = 115m,
                             Quantity = 45m,
@@ -384,7 +384,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 37, 47, 586, DateTimeKind.Local).AddTicks(1661),
+                            CreatedDatetime = new DateTime(2023, 9, 3, 21, 34, 40, 37, DateTimeKind.Local).AddTicks(1528),
                             Description = "Full Subscription on Azure platform (License)",
                             Price = 2500m,
                             Quantity = 3m,
@@ -393,7 +393,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 37, 47, 586, DateTimeKind.Local).AddTicks(1671),
+                            CreatedDatetime = new DateTime(2023, 9, 3, 21, 34, 40, 37, DateTimeKind.Local).AddTicks(1539),
                             Description = "Super GREEN",
                             Price = 20m,
                             Quantity = 3m,
@@ -402,7 +402,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 37, 47, 586, DateTimeKind.Local).AddTicks(1682),
+                            CreatedDatetime = new DateTime(2023, 9, 3, 21, 34, 40, 37, DateTimeKind.Local).AddTicks(1552),
                             Description = "Ancient fork from China",
                             Price = 33m,
                             Quantity = 2000m,
@@ -411,7 +411,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 37, 47, 586, DateTimeKind.Local).AddTicks(1692),
+                            CreatedDatetime = new DateTime(2023, 9, 3, 21, 34, 40, 37, DateTimeKind.Local).AddTicks(1563),
                             Description = "license for RedHat distro in 15% OFF , def. nije piratizirano",
                             Price = 15m,
                             Quantity = 5498m,
@@ -420,7 +420,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 37, 47, 586, DateTimeKind.Local).AddTicks(1702),
+                            CreatedDatetime = new DateTime(2023, 9, 3, 21, 34, 40, 37, DateTimeKind.Local).AddTicks(1574),
                             Description = "Super Big Hat for Winter",
                             Price = 15m,
                             Quantity = 51m,
@@ -429,7 +429,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 37, 47, 586, DateTimeKind.Local).AddTicks(1712),
+                            CreatedDatetime = new DateTime(2023, 9, 3, 21, 34, 40, 37, DateTimeKind.Local).AddTicks(1584),
                             Description = "GPU Nvidia",
                             Price = 475m,
                             Quantity = 6m,
@@ -438,7 +438,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedDatetime = new DateTime(2023, 9, 1, 20, 37, 47, 586, DateTimeKind.Local).AddTicks(1722),
+                            CreatedDatetime = new DateTime(2023, 9, 3, 21, 34, 40, 37, DateTimeKind.Local).AddTicks(1596),
                             Description = "Big Green Carpet",
                             Price = 190m,
                             Quantity = 3m,
@@ -467,6 +467,26 @@ namespace DataAccessWeb.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("ProductCategory");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryId = 1,
+                            ProductId = 9
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryId = 1,
+                            ProductId = 7
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryId = 1,
+                            ProductId = 4
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -1,5 +1,4 @@
-﻿@using ModelWeb.Administration
-@model IEnumerable<ApplicationUser>
+﻿@model IEnumerable<ApplicationUser>
 
 <h1>List of users</h1>
 <hr />
@@ -28,7 +27,7 @@
                 <td>
                     <a class="btn btn-primary" asp-action="Details" asp-route-id=@user.Id>Details</a> #
                     <a class="btn btn-warning" asp-action="Update" asp-route-id="@user.Id">Edit</a> #
-                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@user.Id">Delete</a> #
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@user.Id">Delete</a>
                 </td>
             </tr>
         }

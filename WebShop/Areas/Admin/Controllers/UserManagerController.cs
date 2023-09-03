@@ -60,8 +60,7 @@ namespace WebShop.Areas.Admin.Controllers
             }
 
             ViewBag.UserName = user.UserName;
-            // dohvati sve uloge za korisnika i spremi ih u 
-            // pripremljeni view model ManageUserRolesViewModel
+
             var vm = new List<ManageUserRolesViewModel>();
 
             foreach (var role in _roleManager.Roles)
@@ -114,18 +113,8 @@ namespace WebShop.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //----------------------
-        //[HttpGet]
-        //public async Task<IActionResult> Delete(string id)
-        //{
-        //    var user = await _userManager.FindByIdAsync(id);
-        //    if (user == null) return NotFound();
-
-        //    return View(user);
-        //}
 
         [HttpPost]
-        //[ActionName("Delete")]
         public async Task<IActionResult> Delete(string Id)
         {
             if (Id == "")
@@ -142,15 +131,14 @@ namespace WebShop.Areas.Admin.Controllers
 
             _userManager.DeleteAsync(user);
 
-            //_userManager.AddClaimAsync(user);
-            //_userManager.Users.Remove(user);
-            //_userManager.SaveChanges();
+
 
             return RedirectToAction(nameof(Index));
         }
-
-
         // List<ApplicationUser> users = await _userManager.Users.ToListAsync();
         // Delete metode 
+        //_userManager.AddClaimAsync(user);
+        //_userManager.Users.Remove(user);
+        //_userManager.SaveChanges();
     }
 }

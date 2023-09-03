@@ -45,28 +45,12 @@ namespace DataAccessWeb.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false)
+                    Title = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    ApplicationUser = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Category", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Product",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Quantity = table.Column<decimal>(type: "decimal(9,2)", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(9,2)", nullable: false),
-                    ImageName = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Product", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -81,6 +65,30 @@ namespace DataAccessWeb.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Role", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Product",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Quantity = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    ImageName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedDatetime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Product", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Product_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -145,32 +153,6 @@ namespace DataAccessWeb.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProductCategory",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CategoryId = table.Column<int>(type: "int", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ProductCategory", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ProductCategory_Category_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "Category",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ProductCategory_Product_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Product",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "RoleClaims",
                 columns: table => new
                 {
@@ -215,20 +197,85 @@ namespace DataAccessWeb.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ProductCategory",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CategoryId = table.Column<int>(type: "int", nullable: false),
+                    ProductId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductCategory", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ProductCategory_Category_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Category",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ProductCategory_Product_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Product",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
-                table: "Role",
-                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "27c4e9f8-7ad0-44a2-810b-9256ca697f42", "772fd1f5-a68f-44f7-b2c0-9f7bafe6e3e8", "Moderator", "Moderator" });
+                table: "Category",
+                columns: new[] { "Id", "ApplicationUser", "Title" },
+                values: new object[,]
+                {
+                    { 1, null, "IT" },
+                    { 2, null, "Goods" },
+                    { 3, null, "Kitchen stuff" },
+                    { 4, null, "Limited Edition" },
+                    { 5, null, "Unknown" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Product",
+                columns: new[] { "Id", "CreatedDatetime", "Description", "ImageName", "Price", "Quantity", "Title", "UserId" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2023, 9, 2, 12, 54, 50, 947, DateTimeKind.Local).AddTicks(1342), "Dark Red", null, 21m, 5m, "T-Shirt", null },
+                    { 2, new DateTime(2023, 9, 2, 12, 54, 50, 947, DateTimeKind.Local).AddTicks(1398), "The GoldOne", null, 300m, 2m, "Pen", null },
+                    { 3, new DateTime(2023, 9, 2, 12, 54, 50, 947, DateTimeKind.Local).AddTicks(1408), "Red Wine with 20% alcohol", null, 115m, 45m, "Wine", null },
+                    { 4, new DateTime(2023, 9, 2, 12, 54, 50, 947, DateTimeKind.Local).AddTicks(1418), "Full Subscription on Azure platform (License)", null, 2500m, 3m, "Azure License", null },
+                    { 5, new DateTime(2023, 9, 2, 12, 54, 50, 947, DateTimeKind.Local).AddTicks(1428), "Super GREEN", null, 20m, 3m, "XXL Shirt", null },
+                    { 6, new DateTime(2023, 9, 2, 12, 54, 50, 947, DateTimeKind.Local).AddTicks(1440), "Ancient fork from China", null, 33m, 2000m, "Fork", null },
+                    { 7, new DateTime(2023, 9, 2, 12, 54, 50, 947, DateTimeKind.Local).AddTicks(1450), "license for RedHat distro in 15% OFF , def. nije piratizirano", null, 15m, 5498m, "RedHat License", null },
+                    { 8, new DateTime(2023, 9, 2, 12, 54, 50, 947, DateTimeKind.Local).AddTicks(1483), "Super Big Hat for Winter", null, 15m, 51m, "XXL Hat", null },
+                    { 9, new DateTime(2023, 9, 2, 12, 54, 50, 947, DateTimeKind.Local).AddTicks(1493), "GPU Nvidia", null, 475m, 6m, "Nvidia 200NN", null },
+                    { 10, new DateTime(2023, 9, 2, 12, 54, 50, 947, DateTimeKind.Local).AddTicks(1504), "Big Green Carpet", null, 190m, 3m, "Carpet", null }
+                });
 
             migrationBuilder.InsertData(
                 table: "Role",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "2fffc1bd-60f1-4691-8235-628d1ce3f188", "247c36e8-e036-4f8a-bac7-81c1e7fb35c9", "Admin", "ADMIN" });
+                values: new object[,]
+                {
+                    { "08ccd3c0-2aca-41b6-a598-5ad3b72fd427", "3ecb7cc6-9b05-4f00-8b82-586d97cd6df1", "User", "User" },
+                    { "3fa44e00-fcf9-408f-8b3c-37cfcf705a16", "7143774f-d372-4c5a-adfc-d865b5e5a607", "Moderator", "Moderator" },
+                    { "b20edc45-07b8-4a07-adc0-5f12b8d3dd21", "5aa3748b-9d05-44f5-93a9-477be6149ced", "Admin", "ADMIN" }
+                });
 
             migrationBuilder.InsertData(
-                table: "Role",
-                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "99ceb1ee-ce53-4329-988d-be4ced6f3062", "19551757-5ac1-49d6-a605-b3509a2b4e12", "User", "User" });
+                table: "ProductCategory",
+                columns: new[] { "Id", "CategoryId", "ProductId" },
+                values: new object[] { 1, 1, 9 });
+
+            migrationBuilder.InsertData(
+                table: "ProductCategory",
+                columns: new[] { "Id", "CategoryId", "ProductId" },
+                values: new object[] { 2, 1, 7 });
+
+            migrationBuilder.InsertData(
+                table: "ProductCategory",
+                columns: new[] { "Id", "CategoryId", "ProductId" },
+                values: new object[] { 3, 1, 4 });
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
@@ -241,6 +288,11 @@ namespace DataAccessWeb.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Product_UserId",
+                table: "Product",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProductCategory_CategoryId",

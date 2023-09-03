@@ -20,6 +20,7 @@ namespace DataAccessWeb.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
             #region IdentityRole
             builder.Entity<IdentityRole>()
                 .HasData(new IdentityRole() { Name = "Admin", NormalizedName = "ADMIN" });
@@ -169,6 +170,7 @@ namespace DataAccessWeb.Data
             #endregion
 
             #region PrCat
+            // ne radi....
             builder.Entity<ProductCategory>()
                 .HasData(new ProductCategory() { Id = 1, CategoryId = 1, ProductId = 9 });
             builder.Entity<ProductCategory>()

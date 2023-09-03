@@ -1,6 +1,8 @@
 ﻿@model List<Product>
 
-<h3>Product list</h3>
+<p>
+    <h1><strong>Product list</strong></h1>
+</p>
 
 <div class="row">
     <div class="col-md-2">
@@ -22,10 +24,10 @@
     <div class="col-md-2">
         <a asp-action="Product" class="btn btn-warning">Reset filters</a>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3" @*class="alignleft"*@>
         <form class="d-flex">
         <input class="form-control me-sm-2" type="search" placeholder="Search">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-secondary my-2 my-sm-0 " type="submit">Search</button>
         </form>
     </div>
 </div>
@@ -50,7 +52,7 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">@item.Title</h5>
-                    <p class="card-text">@item.Description</p>
+                    @*<p class="card-text">@item.Description</p>*@
                     <table class="table table-condensed table-hover">
                         <thead>
                             <tr>
@@ -61,13 +63,21 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    @item.Price EUR
+                                    <form method="get" asp-controller="" asp-action="">
+                                        <input type="button" name="productId" value="@item.Id" />
+                                        <input type="checkbox" class="btn btn-success btn-sm" value="Check" />
+                                    </form>
+                                    &nbsp; &nbsp;
                                 </td>
                                 <td>
-                                    <form method="post" asp-controller="Cart" asp-action="AddToCart">
-                                        <input type="hidden" name="productId" value="@item.Id" />
-                                        <input type="submit" class="btn btn-success btn-sm" value="Add to cart" />
-                                    </form>
+                                    @item.Price EUR | 
+                                </td>
+                                <td>
+                                    &nbsp; &nbsp;
+                                    <a class="btn btn-primary"
+                                    asp-area="Admin" asp-action="Details" asp-controller="Product" asp-route-id=@item.Id>
+                                    Details
+                                </a>
                                 </td>
                             </tr>
                         </tbody>

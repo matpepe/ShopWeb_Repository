@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessWeb.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230901163630_Initial")]
+    [Migration("20230902105451_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,22 +53,22 @@ namespace DataAccessWeb.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2fffc1bd-60f1-4691-8235-628d1ce3f188",
-                            ConcurrencyStamp = "247c36e8-e036-4f8a-bac7-81c1e7fb35c9",
+                            Id = "b20edc45-07b8-4a07-adc0-5f12b8d3dd21",
+                            ConcurrencyStamp = "5aa3748b-9d05-44f5-93a9-477be6149ced",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "27c4e9f8-7ad0-44a2-810b-9256ca697f42",
-                            ConcurrencyStamp = "772fd1f5-a68f-44f7-b2c0-9f7bafe6e3e8",
+                            Id = "3fa44e00-fcf9-408f-8b3c-37cfcf705a16",
+                            ConcurrencyStamp = "7143774f-d372-4c5a-adfc-d865b5e5a607",
                             Name = "Moderator",
                             NormalizedName = "Moderator"
                         },
                         new
                         {
-                            Id = "99ceb1ee-ce53-4329-988d-be4ced6f3062",
-                            ConcurrencyStamp = "19551757-5ac1-49d6-a605-b3509a2b4e12",
+                            Id = "08ccd3c0-2aca-41b6-a598-5ad3b72fd427",
+                            ConcurrencyStamp = "3ecb7cc6-9b05-4f00-8b82-586d97cd6df1",
                             Name = "User",
                             NormalizedName = "User"
                         });
@@ -275,6 +275,9 @@ namespace DataAccessWeb.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("ApplicationUser")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(200)
@@ -283,6 +286,33 @@ namespace DataAccessWeb.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Category");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Title = "IT"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Title = "Goods"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Title = "Kitchen stuff"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Title = "Limited Edition"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Title = "Unknown"
+                        });
                 });
 
             modelBuilder.Entity("ModelWeb.Models.Product", b =>
@@ -293,6 +323,9 @@ namespace DataAccessWeb.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<DateTime?>("CreatedDatetime")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -301,19 +334,116 @@ namespace DataAccessWeb.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(9,2)");
+                        .HasColumnType("decimal(10,2)");
 
                     b.Property<decimal>("Quantity")
-                        .HasColumnType("decimal(9,2)");
+                        .HasColumnType("decimal(10,2)");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Product");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedDatetime = new DateTime(2023, 9, 2, 12, 54, 50, 947, DateTimeKind.Local).AddTicks(1342),
+                            Description = "Dark Red",
+                            Price = 21m,
+                            Quantity = 5m,
+                            Title = "T-Shirt"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedDatetime = new DateTime(2023, 9, 2, 12, 54, 50, 947, DateTimeKind.Local).AddTicks(1398),
+                            Description = "The GoldOne",
+                            Price = 300m,
+                            Quantity = 2m,
+                            Title = "Pen"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedDatetime = new DateTime(2023, 9, 2, 12, 54, 50, 947, DateTimeKind.Local).AddTicks(1408),
+                            Description = "Red Wine with 20% alcohol",
+                            Price = 115m,
+                            Quantity = 45m,
+                            Title = "Wine"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedDatetime = new DateTime(2023, 9, 2, 12, 54, 50, 947, DateTimeKind.Local).AddTicks(1418),
+                            Description = "Full Subscription on Azure platform (License)",
+                            Price = 2500m,
+                            Quantity = 3m,
+                            Title = "Azure License"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreatedDatetime = new DateTime(2023, 9, 2, 12, 54, 50, 947, DateTimeKind.Local).AddTicks(1428),
+                            Description = "Super GREEN",
+                            Price = 20m,
+                            Quantity = 3m,
+                            Title = "XXL Shirt"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CreatedDatetime = new DateTime(2023, 9, 2, 12, 54, 50, 947, DateTimeKind.Local).AddTicks(1440),
+                            Description = "Ancient fork from China",
+                            Price = 33m,
+                            Quantity = 2000m,
+                            Title = "Fork"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CreatedDatetime = new DateTime(2023, 9, 2, 12, 54, 50, 947, DateTimeKind.Local).AddTicks(1450),
+                            Description = "license for RedHat distro in 15% OFF , def. nije piratizirano",
+                            Price = 15m,
+                            Quantity = 5498m,
+                            Title = "RedHat License"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CreatedDatetime = new DateTime(2023, 9, 2, 12, 54, 50, 947, DateTimeKind.Local).AddTicks(1483),
+                            Description = "Super Big Hat for Winter",
+                            Price = 15m,
+                            Quantity = 51m,
+                            Title = "XXL Hat"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CreatedDatetime = new DateTime(2023, 9, 2, 12, 54, 50, 947, DateTimeKind.Local).AddTicks(1493),
+                            Description = "GPU Nvidia",
+                            Price = 475m,
+                            Quantity = 6m,
+                            Title = "Nvidia 200NN"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CreatedDatetime = new DateTime(2023, 9, 2, 12, 54, 50, 947, DateTimeKind.Local).AddTicks(1504),
+                            Description = "Big Green Carpet",
+                            Price = 190m,
+                            Quantity = 3m,
+                            Title = "Carpet"
+                        });
                 });
 
             modelBuilder.Entity("ModelWeb.Models.ProductCategory", b =>
@@ -337,6 +467,26 @@ namespace DataAccessWeb.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("ProductCategory");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryId = 1,
+                            ProductId = 9
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryId = 1,
+                            ProductId = 7
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryId = 1,
+                            ProductId = 4
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -388,6 +538,15 @@ namespace DataAccessWeb.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ModelWeb.Models.Product", b =>
+                {
+                    b.HasOne("ModelWeb.Administration.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("ApplicationUser");
                 });
 
             modelBuilder.Entity("ModelWeb.Models.ProductCategory", b =>

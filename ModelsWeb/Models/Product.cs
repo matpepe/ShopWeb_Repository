@@ -28,10 +28,10 @@ namespace ModelWeb.Models
         [ForeignKey("ProductId")]
         public List<ProductCategory>? ProductCategorise { get; set; }
 
-        public DateTime CreatedDatetime { get; set; } = DateTime.Now;
+        public DateTime? CreatedDatetime { get; set; } = DateTime.Now;
 
         [ForeignKey("UserId")]
-        public virtual ApplicationUser? ApplicationUser { get; set; }
+        public ApplicationUser? ApplicationUser { get; set; }
 
         [Required, NotMapped]
         public bool Active { get; set; } = true;
