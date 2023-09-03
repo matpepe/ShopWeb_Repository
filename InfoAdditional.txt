@@ -1,1 +1,1 @@
-git remote set-url origin https://github.com/matpepe/ShopWeb_Repository.git
+https://github.com/matpepe/ShopWeb_Repository.git
