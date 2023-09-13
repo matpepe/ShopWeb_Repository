@@ -10,7 +10,9 @@
             <input type="hidden" asp-for="ProductId" value="@ViewBag.ProductId" />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="CategoryId" class="control-label"></label>
+                <label asp-for="CategoryId" class="control-label">
+                    <strong>Select Category: </strong>
+                </label>
                 <select asp-for="CategoryId" class="form-control" asp-items="@ViewBag.Categories">
                 </select>
             </div>

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DataAccessWeb.Data;
+using Microsoft.AspNetCore.Mvc;
 using ModelWeb.Models;
 using WebShop.Areas.Admin.Controllers;
 using Xunit;
@@ -7,6 +8,24 @@ namespace TestShopWeb
 {
     public class ProductControllerTest
     {
+        private ApplicationDbContext _dbContext;
+
+        public ProductControllerTest(ApplicationDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
+        Product p;
+
+        //public ProductControllerTest()
+        //{
+        //    p = new Product();
+        //    p.Active = true;
+        //    p.Price = 100;
+        //    p.Quantity = 1;
+        //    p.Title = "TSHIRT";
+        //    p.CreatedDatetime = DateTime.Now;
+        //}
 
         [Fact]
         public void Edit_ReturnsNotFoundResult_WhenIdIsZero()
@@ -25,7 +44,7 @@ namespace TestShopWeb
         public void Details_GetProductDetails_WhenModelIsNotNull()
         {
             // Arrange
-            var controller = new ProductController(null);
+            var controller = new ProductController(_dbContext);
             int id = 2;
             // Act
             var result = controller.Edit(id);
@@ -40,17 +59,7 @@ namespace TestShopWeb
         public void Add_AddsProductAndReturnsARedirect_WhenModelIsNotNull()
         {
             // Arrange
-            var controller = new ProductController(null);
-            Product p = new Product()
-            {
-                Id = 1,
-                Title = "NotNull",
-                Active = true,
-                CreatedDatetime = DateTime.Now,
-                Quantity = 1,
-                Price = 1,
-                Description = ""
-            };
+            var controller = new ProductController(_dbContext);
             // Act
             var result = controller.Create(p);
             // Assert
