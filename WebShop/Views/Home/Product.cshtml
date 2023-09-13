@@ -5,21 +5,30 @@
 </p>
 
 <div class="row">
-    <div class="col-md-2">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            Filter by category
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-
-            @foreach (var item in ViewBag.Categories)
-            {
-                <li>
-                    <a class="dropdown-item" asp-action="Product" asp-route-categoryId="@item.Value">
-                        @item.Text
-                    </a>
-                </li>
-            }
-        </ul>
+    <div class="d-flex" id="wrapper">
+        <div class="bg-light border-light" id="sidebar-wrapper">
+            <div class="sidebar-heading">
+                <h4>
+                    <strong>By Category:</strong>
+                </h4>
+            </div>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-2">
+                <div class="container-fluid">
+                    <div class="navbar-brand">
+                        <ul class="navbar-nav flex-grow-3">
+                        @foreach (var item in ViewBag.Categories)
+                        {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark bg-light" asp-action="Product" asp-route-categoryId="@item.Value">
+                                        &spades; @item.Text &spades;
+                            </a>
+                        </li>
+                        }
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
     </div>
     <div class="col-md-2">
         <a asp-action="Product" class="btn btn-warning">Reset filters</a>
