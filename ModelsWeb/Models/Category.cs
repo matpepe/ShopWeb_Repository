@@ -17,5 +17,7 @@ namespace ModelWeb.Models
 
         [ForeignKey("UserId")]
         public string? ApplicationUser { get; set; }
+        public DateTime? CreatedDatetime { get; set; } = DateTime.Now;
+
     }
 }

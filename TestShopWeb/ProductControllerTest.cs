@@ -1,4 +1,4 @@
-﻿using DataAccessWeb.Data;
+using DataAccessWeb.Data;
 using Microsoft.AspNetCore.Mvc;
 using ModelWeb.Models;
 using WebShop.Areas.Admin.Controllers;
@@ -8,30 +8,24 @@ namespace TestShopWeb
 {
     public class ProductControllerTest
     {
-        private ApplicationDbContext _dbContext;
+        private readonly ApplicationDbContext _context;
 
-        public ProductControllerTest(ApplicationDbContext dbContext)
+        public static Product p = new Product()
         {
-            _dbContext = dbContext;
-        }
-
-        Product p;
-
-        //public ProductControllerTest()
-        //{
-        //    p = new Product();
-        //    p.Active = true;
-        //    p.Price = 100;
-        //    p.Quantity = 1;
-        //    p.Title = "TSHIRT";
-        //    p.CreatedDatetime = DateTime.Now;
-        //}
+            Id = 1,
+            Title = "NotNull",
+            Active = true,
+            CreatedDatetime = DateTime.Now,
+            Quantity = 1,
+            Price = 1,
+            Description = ""
+        };
 
         [Fact]
         public void Edit_ReturnsNotFoundResult_WhenIdIsZero()
         {
             // Arrange
-            var controller = new ProductController(null);
+            var controller = new ProductController(_context);
             int id = 0;
             // Act
             var result = controller.Edit(id);
@@ -44,22 +38,32 @@ namespace TestShopWeb
         public void Details_GetProductDetails_WhenModelIsNotNull()
         {
             // Arrange
-            var controller = new ProductController(_dbContext);
-            int id = 2;
+            var controller = new ProductController(_context);
+            //int id = 2;
             // Act
-            var result = controller.Edit(id);
+            var result = controller.Edit(p.Id);
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
-            var model = Assert.IsAssignableFrom<Product>(viewResult.ViewData.Model);
+            var model = Assert.IsAssignableFrom<Product>(viewResult);
 
-            Assert.NotNull(model);
+            Assert.Null(model);
         }
 
         [Fact]
         public void Add_AddsProductAndReturnsARedirect_WhenModelIsNotNull()
         {
             // Arrange
-            var controller = new ProductController(_dbContext);
+            var controller = new ProductController(_context);
+            Product p = new Product()
+            {
+                Id = 1,
+                Title = "NotNull",
+                Active = true,
+                CreatedDatetime = DateTime.Now,
+                Quantity = 1,
+                Price = 1,
+                Description = ""
+            };
             // Act
             var result = controller.Create(p);
             // Assert

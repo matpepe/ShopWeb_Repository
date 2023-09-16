@@ -16,5 +16,7 @@ namespace ModelWeb.Models
         public string? ProductTitle { get; set; }
         [NotMapped]
         public string? CategoryTitle { get; set; }
+        public DateTime? CreatedDatetime { get; set; } = DateTime.Now;
+
     }
 }

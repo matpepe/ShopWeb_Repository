@@ -1,70 +1,18 @@
-﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity
 @using ModelWeb.Administration;
 
 
 @model IEnumerable<IdentityRole>
 
-<div class="container p-3">
-    <div class="row pt-4">
-        <div class="col-6 text-start">
-            <h2 class="text-primary">Role manager</h2>
-        </div>
-        <div class="col-6 text-end">
-@*            <a asp-controller="Category" asp-action="Create" class="btn btn-primary">
-                <i class="bi bi-file-plus"></i> &nbsp; Create new Category
-            </a>*@
-            <form method="post" asp-action="AddRole" asp-controller="RoleManager">
-                <div class="w-40 input-group">
-                    <input name="roleName" class="form-control w-7" />
-                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                    <span class="input-group-btn">
-                        <button class="btn btn-success" style="width:50px">
-                            @*<i class="bi bi-file-plus"></i>*@ 
-                            <strong>ADD</strong>
-                        </button>
-                    </span>
-                </div>
-            </form>
-        </div>
-    </div>
-    <br />
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Role</th>
-                <th>Action</th>
-                <th>
+<h1>Role manager</h1>
+<hr />
 
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var role in Model)
-            {
-                <tr>
-                    <td>@role.Id</td>
-                    <td>@role.Name</td>
-                    <td>
-                        <form method="post" asp-area="Admin" asp-controller="RoleManager" asp-action="Delete" asp-route-id="@role.Id">
-                            <button type="submit" class="btn btn-danger " style="width:150px">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
-@*
 <table class="table table-striped">
     <thead>
         <tr>
             <th>Id</th>
             <th>Role</th>
             <th>Action</th>
-            <th>
-
-            </th>
         </tr>
     </thead>
     <tbody>
@@ -75,30 +23,40 @@
                 <td>@role.Name</td>
                 <td>
                     <form method="post" asp-area="Admin" asp-controller="RoleManager" asp-action="Delete" asp-route-id="@role.Id">
-                        <button type="submit" class="btn btn-danger " style="width:150px">Delete</button>
+                        <button type="submit" class="btn btn-danger" style="width:150px">Delete</button>
                     </form>
                 </td>
             </tr>
         }
     </tbody>
 </table>
-<br />*@
-@*<table class="table table-striped">
+<br />
+<table class="table table-striped">
     <thead>
         <tr>
             <th>
                 <strong>Add new Role</strong>
             </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>
-
+                <form method="post" asp-action="AddRole" asp-controller="RoleManager">
+                    <div class="w-75 input-group">
+                        <input name="roleName" class="form-control w-25" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-success">
+                                ADD
+                            </button>
+                        </span>
+                    </div>
+                </form>
             </td>
         </tr>
     </tbody>
-</table>*@
+</table>
 
 
 @section Scripts{

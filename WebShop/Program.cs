@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using ModelWeb.Administration;
 using System.Globalization;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.ResponseCompression;
 
 namespace ShopWeb
 {
@@ -13,7 +15,6 @@ namespace ShopWeb
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
@@ -21,9 +22,10 @@ namespace ShopWeb
 
             builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false) //
                 .AddRoles<IdentityRole>()
-                .AddDefaultUI() //
-                .AddDefaultTokenProviders() //
+                .AddDefaultUI() 
+                .AddDefaultTokenProviders() 
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
             builder.Services.AddControllersWithViews();
 
             builder.Services.Configure<IdentityOptions>(options =>
@@ -35,7 +37,14 @@ namespace ShopWeb
                 options.Password.RequiredUniqueChars = 0;
             });
 
-            builder.Services.AddAuthentication().AddGoogle(googleOptions =>
+            var cultureInfo = new CultureInfo("hr-HR");
+            cultureInfo.NumberFormat.NumberDecimalSeparator = ".";
+            cultureInfo.NumberFormat.CurrencyDecimalSeparator = ".";
+            //builder.Services.AddIdentityServer().
+
+            builder.Services.AddAuthentication()
+                            //.AddIdentityServerJwt()
+                            .AddGoogle(googleOptions =>
             {
                 googleOptions.ClientId = builder.Configuration["Authentication:Google:ClientId"];
                 googleOptions.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
@@ -58,11 +67,6 @@ namespace ShopWeb
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
-
-            var cultureInfo = new CultureInfo("hr-HR");
-            cultureInfo.NumberFormat.NumberDecimalSeparator = ".";
-            cultureInfo.NumberFormat.CurrencyDecimalSeparator = ".";
 
             app.UseRequestLocalization(new RequestLocalizationOptions
             {
@@ -96,8 +100,6 @@ namespace ShopWeb
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
-
-
 
             app.MapRazorPages();
             app.Run();
