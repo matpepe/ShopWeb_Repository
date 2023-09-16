@@ -63,7 +63,7 @@ namespace ShopWeb.Areas.Identity.Pages.Account
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
-        public class InputModel
+        public class InputModel : ApplicationUser
         {
             [Required]
             [Display(Name = "First Name")]
@@ -98,6 +98,8 @@ namespace ShopWeb.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            public bool EmailConfirmed { get; set; } 
         }
 
 
@@ -120,7 +122,8 @@ namespace ShopWeb.Areas.Identity.Pages.Account
                     UserName = userName,
                     Email = Input.Email,
                     FirstName = Input.FirstName,
-                    LastName = Input.LastName
+                    LastName = Input.LastName,
+                    EmailConfirmed = Input.EmailConfirmed
                 };
 
                 var user = CreateUser();
