@@ -1,4 +1,4 @@
-﻿using DataAccessWeb.Data;
+using DataAccessWeb.Data;
 using Microsoft.AspNetCore.Mvc;
 using ModelWeb.Models;
 using WebShop.Areas.Admin.Controllers;
