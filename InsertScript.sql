@@ -2,9 +2,10 @@
 
 Author: Matko Popović
 
--Skripta za ProductKategorije 
--Povezivanje Admina sa Rolom
--reset identity 
+-- Skripta za ProductKategorije 
+-- Povezivanje Admina sa Rolom
+-- Categ->Prod 
+-- reset identity 
 
 --#########################--*/
 
