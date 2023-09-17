@@ -1,12 +1,18 @@
 ﻿using DataAccessWeb.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ModelWeb.Models;
+using System.Net.Mime;
 
 namespace ShopAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [AllowAnonymous]
     [ApiController]
+    [Route("api/[controller]")]
+    [Produces("application/json", "application/xml", "text/plain; charset=utf-8")]
+    //[Consumes(MediaTypeNames.Application.Json, MediaTypeNames.Application.Xml)]
+    //[Produces(MediaTypeNames.Application.Json, MediaTypeNames.Application.Xml)]
     public class ProductsAPIController : ControllerBase
     {
         private readonly ApplicationDbContext _context;

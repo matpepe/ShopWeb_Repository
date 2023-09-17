@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessWeb.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230916173609_Ini")]
-    partial class Ini
+    [Migration("20230916195329_ini")]
+    partial class ini
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,22 +53,22 @@ namespace DataAccessWeb.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "0c849154-26c1-47cf-8dfd-5f2684750ffa",
-                            ConcurrencyStamp = "b6047075-25cc-4985-bad9-dbf01e24b1cd",
+                            Id = "8aba1a65-7c6e-47b9-bd7c-25f262c7f772",
+                            ConcurrencyStamp = "1fbb12f9-ef49-4b2e-b90f-2c20326e0f08",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "bd1d4e68-0b2c-4213-ba8a-babf5476399a",
-                            ConcurrencyStamp = "aabced76-e3fe-4171-b8b0-db109871dba1",
+                            Id = "329aee9f-adef-4aaa-b285-e5713a2ab86b",
+                            ConcurrencyStamp = "baa80465-cecd-4e11-a701-7db7612ff543",
                             Name = "Moderator",
                             NormalizedName = "Moderator"
                         },
                         new
                         {
-                            Id = "e83f1ef1-d69b-46b1-86cb-967f931dd03e",
-                            ConcurrencyStamp = "1482764c-ebfa-493d-b389-f824131b0d5d",
+                            Id = "16158cb3-b50d-4869-bdbb-3154fb96f570",
+                            ConcurrencyStamp = "9a4a216d-5f09-4754-960f-1f6c411b99d5",
                             Name = "User",
                             NormalizedName = "User"
                         });
@@ -200,9 +200,6 @@ namespace DataAccessWeb.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("CreatedDatetime")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -281,9 +278,6 @@ namespace DataAccessWeb.Migrations
                     b.Property<string>("ApplicationUser")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("CreatedDatetime")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(200)
@@ -297,31 +291,26 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4916),
                             Title = "IT"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4931),
                             Title = "Goods"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4942),
                             Title = "Kitchen stuff"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4954),
                             Title = "Limited Edition"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4965),
                             Title = "Unknown"
                         });
                 });
@@ -368,7 +357,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4730),
+                            CreatedDatetime = new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7423),
                             Description = "Dark Red",
                             Price = 21m,
                             Quantity = 5m,
@@ -377,7 +366,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4794),
+                            CreatedDatetime = new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7491),
                             Description = "The GoldOne",
                             Price = 300m,
                             Quantity = 2m,
@@ -386,7 +375,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4807),
+                            CreatedDatetime = new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7503),
                             Description = "Red Wine with 20% alcohol",
                             Price = 115m,
                             Quantity = 45m,
@@ -395,7 +384,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4819),
+                            CreatedDatetime = new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7514),
                             Description = "Full Subscription on Azure platform (License)",
                             Price = 2500m,
                             Quantity = 3m,
@@ -404,7 +393,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4837),
+                            CreatedDatetime = new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7525),
                             Description = "Super GREEN",
                             Price = 20m,
                             Quantity = 3m,
@@ -413,7 +402,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4852),
+                            CreatedDatetime = new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7539),
                             Description = "Ancient fork from China",
                             Price = 33m,
                             Quantity = 2000m,
@@ -422,7 +411,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4864),
+                            CreatedDatetime = new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7551),
                             Description = "license for RedHat distro in 15% OFF , def. nije piratizirano",
                             Price = 15m,
                             Quantity = 5498m,
@@ -431,7 +420,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4875),
+                            CreatedDatetime = new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7562),
                             Description = "Super Big Hat for Winter",
                             Price = 15m,
                             Quantity = 51m,
@@ -440,7 +429,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4886),
+                            CreatedDatetime = new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7573),
                             Description = "GPU Nvidia",
                             Price = 475m,
                             Quantity = 6m,
@@ -449,7 +438,7 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4897),
+                            CreatedDatetime = new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7585),
                             Description = "Big Green Carpet",
                             Price = 190m,
                             Quantity = 3m,
@@ -487,21 +476,21 @@ namespace DataAccessWeb.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4983),
+                            CreatedDatetime = new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7657),
                             ProductId = 9
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4996),
+                            CreatedDatetime = new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7671),
                             ProductId = 7
                         },
                         new
                         {
                             Id = 3,
                             CategoryId = 1,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(5007),
+                            CreatedDatetime = new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7771),
                             ProductId = 4
                         });
                 });

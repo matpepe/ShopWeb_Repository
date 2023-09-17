@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DataAccessWeb.Migrations
 {
-    public partial class Ini : Migration
+    public partial class ini : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -19,7 +19,6 @@ namespace DataAccessWeb.Migrations
                     Address = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: true),
                     UsernameChangeLimit = table.Column<int>(type: "int", nullable: true),
                     ProfilePicture = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
-                    CreatedDatetime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -47,8 +46,7 @@ namespace DataAccessWeb.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    ApplicationUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedDatetime = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    ApplicationUser = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -228,14 +226,14 @@ namespace DataAccessWeb.Migrations
 
             migrationBuilder.InsertData(
                 table: "Category",
-                columns: new[] { "Id", "ApplicationUser", "CreatedDatetime", "Title" },
+                columns: new[] { "Id", "ApplicationUser", "Title" },
                 values: new object[,]
                 {
-                    { 1, null, new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4916), "IT" },
-                    { 2, null, new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4931), "Goods" },
-                    { 3, null, new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4942), "Kitchen stuff" },
-                    { 4, null, new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4954), "Limited Edition" },
-                    { 5, null, new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4965), "Unknown" }
+                    { 1, null, "IT" },
+                    { 2, null, "Goods" },
+                    { 3, null, "Kitchen stuff" },
+                    { 4, null, "Limited Edition" },
+                    { 5, null, "Unknown" }
                 });
 
             migrationBuilder.InsertData(
@@ -243,16 +241,16 @@ namespace DataAccessWeb.Migrations
                 columns: new[] { "Id", "CreatedDatetime", "Description", "ImageName", "Price", "Quantity", "Title", "UserId" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4730), "Dark Red", null, 21m, 5m, "T-Shirt", null },
-                    { 2, new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4794), "The GoldOne", null, 300m, 2m, "Pen", null },
-                    { 3, new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4807), "Red Wine with 20% alcohol", null, 115m, 45m, "Wine", null },
-                    { 4, new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4819), "Full Subscription on Azure platform (License)", null, 2500m, 3m, "Azure License", null },
-                    { 5, new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4837), "Super GREEN", null, 20m, 3m, "XXL Shirt", null },
-                    { 6, new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4852), "Ancient fork from China", null, 33m, 2000m, "Fork", null },
-                    { 7, new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4864), "license for RedHat distro in 15% OFF , def. nije piratizirano", null, 15m, 5498m, "RedHat License", null },
-                    { 8, new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4875), "Super Big Hat for Winter", null, 15m, 51m, "XXL Hat", null },
-                    { 9, new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4886), "GPU Nvidia", null, 475m, 6m, "Nvidia 200NN", null },
-                    { 10, new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4897), "Big Green Carpet", null, 190m, 3m, "Carpet", null }
+                    { 1, new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7423), "Dark Red", null, 21m, 5m, "T-Shirt", null },
+                    { 2, new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7491), "The GoldOne", null, 300m, 2m, "Pen", null },
+                    { 3, new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7503), "Red Wine with 20% alcohol", null, 115m, 45m, "Wine", null },
+                    { 4, new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7514), "Full Subscription on Azure platform (License)", null, 2500m, 3m, "Azure License", null },
+                    { 5, new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7525), "Super GREEN", null, 20m, 3m, "XXL Shirt", null },
+                    { 6, new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7539), "Ancient fork from China", null, 33m, 2000m, "Fork", null },
+                    { 7, new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7551), "license for RedHat distro in 15% OFF , def. nije piratizirano", null, 15m, 5498m, "RedHat License", null },
+                    { 8, new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7562), "Super Big Hat for Winter", null, 15m, 51m, "XXL Hat", null },
+                    { 9, new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7573), "GPU Nvidia", null, 475m, 6m, "Nvidia 200NN", null },
+                    { 10, new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7585), "Big Green Carpet", null, 190m, 3m, "Carpet", null }
                 });
 
             migrationBuilder.InsertData(
@@ -260,25 +258,25 @@ namespace DataAccessWeb.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "0c849154-26c1-47cf-8dfd-5f2684750ffa", "b6047075-25cc-4985-bad9-dbf01e24b1cd", "Admin", "ADMIN" },
-                    { "bd1d4e68-0b2c-4213-ba8a-babf5476399a", "aabced76-e3fe-4171-b8b0-db109871dba1", "Moderator", "Moderator" },
-                    { "e83f1ef1-d69b-46b1-86cb-967f931dd03e", "1482764c-ebfa-493d-b389-f824131b0d5d", "User", "User" }
+                    { "16158cb3-b50d-4869-bdbb-3154fb96f570", "9a4a216d-5f09-4754-960f-1f6c411b99d5", "User", "User" },
+                    { "329aee9f-adef-4aaa-b285-e5713a2ab86b", "baa80465-cecd-4e11-a701-7db7612ff543", "Moderator", "Moderator" },
+                    { "8aba1a65-7c6e-47b9-bd7c-25f262c7f772", "1fbb12f9-ef49-4b2e-b90f-2c20326e0f08", "Admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
                 table: "ProductCategory",
                 columns: new[] { "Id", "CategoryId", "CreatedDatetime", "ProductId" },
-                values: new object[] { 1, 1, new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4983), 9 });
+                values: new object[] { 1, 1, new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7657), 9 });
 
             migrationBuilder.InsertData(
                 table: "ProductCategory",
                 columns: new[] { "Id", "CategoryId", "CreatedDatetime", "ProductId" },
-                values: new object[] { 2, 1, new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(4996), 7 });
+                values: new object[] { 2, 1, new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7671), 7 });
 
             migrationBuilder.InsertData(
                 table: "ProductCategory",
                 columns: new[] { "Id", "CategoryId", "CreatedDatetime", "ProductId" },
-                values: new object[] { 3, 1, new DateTime(2023, 9, 16, 19, 36, 9, 38, DateTimeKind.Local).AddTicks(5007), 4 });
+                values: new object[] { 3, 1, new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7771), 4 });
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",

@@ -1,4 +1,5 @@
 using DataAccessWeb.Data;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebShop.Areas.Admin.Controllers;
 
@@ -10,15 +11,23 @@ namespace ShopAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
             builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
-            // registrirao kroz Dependency Injection interface i implementaciju MovieRepository
             builder.Services.AddTransient<ProductController>();
 
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            //builder.Services.AddControllers();
+
+            builder.Services.AddControllers(options =>
+            {
+                options.Filters.Add(new ProducesAttribute("application/json"));
+                options.Filters.Add(new ProducesAttribute("application/xml"));
+                options.Filters.Add(new ProducesAttribute("text/plain; charset=utf-8"));
+                //options.Filters.Add(new ProducesAttribute("text/json"));
+                //options.Filters.Add(new ProducesAttribute("text/plain"));
+                //options.Filters.Add(new ProducesAttribute("text/json"));
+            });
+
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
@@ -29,40 +38,14 @@ namespace ShopAPI
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
+                //app.UseDeveloperExceptionPage();
             }
 
-            app.UseAuthorization();
-
-
-            app.MapControllers();
-
-            app.Run();
-            //var builder = WebApplication.CreateBuilder(args);
-
-            //// Add services to the container.
-
-            //builder.Services.AddControllers();
-            //// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            //builder.Services.AddEndpointsApiExplorer();
-            //builder.Services.AddSwaggerGen();
-
-            //var app = builder.Build();
-
-            //// Configure the HTTP request pipeline.
-            //if (app.Environment.IsDevelopment())
-            //{
-            //    app.UseSwagger();
-            //    app.UseSwaggerUI();
-            //}
-
             //app.UseHttpsRedirection();
-
-            //app.UseAuthorization();
-
-
-            //app.MapControllers();
-
-            //app.Run();
+            app.UseAuthorization();
+            app.MapControllers();
+            app.Run();
         }
     }
 }
+
