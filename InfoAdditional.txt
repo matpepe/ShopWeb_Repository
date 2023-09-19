@@ -1,3 +1,6 @@
 REPO:
 https://github.com/matpepe/ShopWeb_Repository.git
 
+Nisam napravio git init do Identitya , dio CRUD-a sam kopirao, 
+bez repository patterna ili WorkingUnit za dodatnu kontrolu.
+

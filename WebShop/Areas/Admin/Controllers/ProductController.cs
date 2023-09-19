@@ -16,6 +16,7 @@ namespace WebShop.Areas.Admin.Controllers
             _dbContext = dbContext;
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var products = _dbContext.Product.ToList();
@@ -51,7 +52,7 @@ namespace WebShop.Areas.Admin.Controllers
                 string fileName = product.ImageFile.FileName;
                 product.ImageName = fileName;
                 string path = wwwRootPath + "/Images/" + fileName;
-                // spremiti na file system
+
                 using (var fileStream = new FileStream(path, FileMode.Create))
                 {
                     product.ImageFile.CopyTo(fileStream);
@@ -88,6 +89,15 @@ namespace WebShop.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
+                //string wwwRootPath = "wwwroot";
+                //string fileName = product.ImageFile.FileName;
+                //product.ImageName = fileName;
+                //string path = wwwRootPath + "/Images/" + fileName;
+
+                //using (var fileStream = new FileStream(path, FileMode.Create))
+                //{
+                //    product.ImageFile.CopyTo(fileStream);
+                //}
                 _dbContext.Update(product);
                 _dbContext.SaveChanges();
 

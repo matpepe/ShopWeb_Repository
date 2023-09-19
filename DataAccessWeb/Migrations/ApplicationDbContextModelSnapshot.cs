@@ -51,22 +51,22 @@ namespace DataAccessWeb.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8aba1a65-7c6e-47b9-bd7c-25f262c7f772",
-                            ConcurrencyStamp = "1fbb12f9-ef49-4b2e-b90f-2c20326e0f08",
+                            Id = "495de24f-852a-41cf-bdcf-6d4a9c5808a5",
+                            ConcurrencyStamp = "665b7298-8f94-4ba4-8143-db6eb770b635",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "329aee9f-adef-4aaa-b285-e5713a2ab86b",
-                            ConcurrencyStamp = "baa80465-cecd-4e11-a701-7db7612ff543",
+                            Id = "7a6bf964-8710-4c31-a077-6f28b1b16369",
+                            ConcurrencyStamp = "d74feca3-2bcc-4ca2-b8b7-e06322903742",
                             Name = "Moderator",
                             NormalizedName = "Moderator"
                         },
                         new
                         {
-                            Id = "16158cb3-b50d-4869-bdbb-3154fb96f570",
-                            ConcurrencyStamp = "9a4a216d-5f09-4754-960f-1f6c411b99d5",
+                            Id = "c0181876-85a4-40cb-a5fd-38f0c17e81fa",
+                            ConcurrencyStamp = "0780098f-ae26-42fe-a731-a37418853cbc",
                             Name = "User",
                             NormalizedName = "User"
                         });
@@ -355,8 +355,9 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7423),
+                            CreatedDatetime = new DateTime(2023, 9, 19, 15, 5, 30, 599, DateTimeKind.Local).AddTicks(7249),
                             Description = "Dark Red",
+                            ImageName = "DarkRedTShirt.jpg",
                             Price = 21m,
                             Quantity = 5m,
                             Title = "T-Shirt"
@@ -364,8 +365,9 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7491),
+                            CreatedDatetime = new DateTime(2023, 9, 19, 15, 5, 30, 599, DateTimeKind.Local).AddTicks(7313),
                             Description = "The GoldOne",
+                            ImageName = "goldpen.jpg",
                             Price = 300m,
                             Quantity = 2m,
                             Title = "Pen"
@@ -373,8 +375,9 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7503),
+                            CreatedDatetime = new DateTime(2023, 9, 19, 15, 5, 30, 599, DateTimeKind.Local).AddTicks(7326),
                             Description = "Red Wine with 20% alcohol",
+                            ImageName = "RedWine.jpg",
                             Price = 115m,
                             Quantity = 45m,
                             Title = "Wine"
@@ -382,8 +385,9 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7514),
+                            CreatedDatetime = new DateTime(2023, 9, 19, 15, 5, 30, 599, DateTimeKind.Local).AddTicks(7339),
                             Description = "Full Subscription on Azure platform (License)",
+                            ImageName = "microsoft-azure.jpg",
                             Price = 2500m,
                             Quantity = 3m,
                             Title = "Azure License"
@@ -391,8 +395,9 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7525),
+                            CreatedDatetime = new DateTime(2023, 9, 19, 15, 5, 30, 599, DateTimeKind.Local).AddTicks(7350),
                             Description = "Super GREEN",
+                            ImageName = "shirtGreen.jpg",
                             Price = 20m,
                             Quantity = 3m,
                             Title = "XXL Shirt"
@@ -400,8 +405,9 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7539),
+                            CreatedDatetime = new DateTime(2023, 9, 19, 15, 5, 30, 599, DateTimeKind.Local).AddTicks(7363),
                             Description = "Ancient fork from China",
+                            ImageName = "antique_fork-7.jpg",
                             Price = 33m,
                             Quantity = 2000m,
                             Title = "Fork"
@@ -409,8 +415,9 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7551),
+                            CreatedDatetime = new DateTime(2023, 9, 19, 15, 5, 30, 599, DateTimeKind.Local).AddTicks(7374),
                             Description = "license for RedHat distro in 15% OFF , def. nije piratizirano",
+                            ImageName = "redhat-logo.jpg",
                             Price = 15m,
                             Quantity = 5498m,
                             Title = "RedHat License"
@@ -418,26 +425,29 @@ namespace DataAccessWeb.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7562),
-                            Description = "Super Big Hat for Winter",
+                            CreatedDatetime = new DateTime(2023, 9, 19, 15, 5, 30, 599, DateTimeKind.Local).AddTicks(7384),
+                            Description = "Super Sombrero Hat for Winter",
+                            ImageName = "XXXLsamb.jpg",
                             Price = 15m,
                             Quantity = 51m,
-                            Title = "XXL Hat"
+                            Title = "XXXL Sombrero"
                         },
                         new
                         {
                             Id = 9,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7573),
+                            CreatedDatetime = new DateTime(2023, 9, 19, 15, 5, 30, 599, DateTimeKind.Local).AddTicks(7395),
                             Description = "GPU Nvidia",
+                            ImageName = "Titan_RTX.jpg",
                             Price = 475m,
                             Quantity = 6m,
-                            Title = "Nvidia 200NN"
+                            Title = "Nvidia Titan RTX"
                         },
                         new
                         {
                             Id = 10,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7585),
+                            CreatedDatetime = new DateTime(2023, 9, 19, 15, 5, 30, 599, DateTimeKind.Local).AddTicks(7407),
                             Description = "Big Green Carpet",
+                            ImageName = "greenCarpetMan.jpg",
                             Price = 190m,
                             Quantity = 3m,
                             Title = "Carpet"
@@ -474,21 +484,21 @@ namespace DataAccessWeb.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7657),
+                            CreatedDatetime = new DateTime(2023, 9, 19, 15, 5, 30, 599, DateTimeKind.Local).AddTicks(7477),
                             ProductId = 9
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7671),
+                            CreatedDatetime = new DateTime(2023, 9, 19, 15, 5, 30, 599, DateTimeKind.Local).AddTicks(7492),
                             ProductId = 7
                         },
                         new
                         {
                             Id = 3,
                             CategoryId = 1,
-                            CreatedDatetime = new DateTime(2023, 9, 16, 21, 53, 28, 842, DateTimeKind.Local).AddTicks(7771),
+                            CreatedDatetime = new DateTime(2023, 9, 19, 15, 5, 30, 599, DateTimeKind.Local).AddTicks(7502),
                             ProductId = 4
                         });
                 });

@@ -2,6 +2,12 @@
 
 Author: Matko Popović
 
+1.Pokrenuti App
+2.Run Script t-sql script
+3.(Default Admin User) AdminLogin: 
+	-username: Admin@gmail.uk
+	-password: password
+
 -- Skripta za ProductKategorije 
 -- Povezivanje Admina sa Rolom
 -- Categ->Prod 
@@ -10,9 +16,9 @@ Author: Matko Popović
 --#########################--*/
 
 
-USE ModelWeb2
+USE ShopWebDb_MP
 
-BEGIN TRAN
+--BEGIN TRAN
 
 DECLARE @AdminID AS NVARCHAR(MAX)
 DECLARE @RoleAdminID AS NVARCHAR(MAX)
@@ -36,7 +42,6 @@ SET @RoleAdminID =
 SELECT @AdminID AS 'ADMIN_id', @RoleAdminID AS 'Role_Id'
 --SELECT * FROM dbo.UserRoles
 --SELECT * FROM dbo.ProductCategory
-
 
 DBCC CHECKIDENT ('dbo.ProductCategory', RESEED, @i)
 
@@ -73,14 +78,23 @@ IF NOT EXISTS (SELECT 1 FROM dbo.Role)
 UPDATE dbo.AspNetUsers SET EmailConfirmed = 1 
 WHERE Id = @AdminID
 
+UPDATE 
+	dbo.Product 
+SET 
+	UserId = A.Id 
+	FROM dbo.AspNetUsers AS A 
+	WHERE 
+		A.UserName = 'Admin@gmail.uk' -- defaultni Admin kreira Proizvode
+
 GO
 
 SELECT 'AFTER INSERT:' AS 'Info', * FROM dbo.UserRoles
 SELECT 'AFTER INSERT:' AS 'Info', * FROM dbo.ProductCategory
 SELECT * FROM dbo.AspNetUsers
 SELECT * FROM INFORMATION_SCHEMA.TABLES
+SELECT * FROM dbo.Product
 
-ROLLBACK TRAN
+--ROLLBACK TRAN
 
 
 

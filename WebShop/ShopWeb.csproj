@@ -33,10 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\Images\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\DataAccessWeb\DataAccessWeb.csproj" />
     <ProjectReference Include="..\ModelsWeb\ModelWeb.csproj" />
   </ItemGroup>

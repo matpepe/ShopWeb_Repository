@@ -66,6 +66,8 @@ namespace DataAccessWeb.Data
                     Id = 1,
                     Title = "T-Shirt",
                     Description = "Dark Red",
+                    ImageName = "DarkRedTShirt.jpg",
+                    Active = true,
                     Price = 21,
                     Quantity = 5
                 });
@@ -76,6 +78,8 @@ namespace DataAccessWeb.Data
                     Title = "Pen",
                     Description = "The GoldOne",
                     Price = 300,
+                    ImageName = "goldpen.jpg",
+                    Active = true,
                     Quantity = 2
                 });
             builder.Entity<Product>()
@@ -84,6 +88,8 @@ namespace DataAccessWeb.Data
                     Id = 3,
                     Title = "Wine",
                     Description = "Red Wine with 20% alcohol",
+                    ImageName = "RedWine.jpg",
+                    Active = true,
                     Price = 115,
                     Quantity = 45
                 });
@@ -93,6 +99,8 @@ namespace DataAccessWeb.Data
                     Id = 4,
                     Title = "Azure License",
                     Description = "Full Subscription on Azure platform (License)",
+                    ImageName = "microsoft-azure.jpg",
+                    Active = true,
                     Price = 2500,
                     Quantity = 3
                 });
@@ -102,6 +110,8 @@ namespace DataAccessWeb.Data
                     Id = 5,
                     Title = "XXL Shirt",
                     Description = "Super GREEN",
+                    ImageName = "shirtGreen.jpg",
+                    Active = true,
                     Price = 20,
                     Quantity = 3
                 });
@@ -111,6 +121,8 @@ namespace DataAccessWeb.Data
                     Id = 6,
                     Title = "Fork",
                     Description = "Ancient fork from China",
+                    ImageName = "antique_fork-7.jpg",
+                    Active = true,
                     Price = 33,
                     Quantity = 2000
                 });
@@ -120,6 +132,8 @@ namespace DataAccessWeb.Data
                     Id = 7,
                     Title = "RedHat License",
                     Description = "license for RedHat distro in 15% OFF , def. nije piratizirano",
+                    ImageName = "redhat-logo.jpg",
+                    Active = true,
                     Price = 15,
                     Quantity = 5498
                 });
@@ -127,8 +141,10 @@ namespace DataAccessWeb.Data
                 .HasData(new Product()
                 {
                     Id = 8,
-                    Title = "XXL Hat",
-                    Description = "Super Big Hat for Winter",
+                    Title = "XXXL Sombrero",
+                    Description = "Super Sombrero Hat for Winter",
+                    ImageName = "XXXLsamb.jpg",
+                    Active = true,
                     Price = 15,
                     Quantity = 51
                 });
@@ -136,8 +152,10 @@ namespace DataAccessWeb.Data
                 .HasData(new Product()
                 {
                     Id = 9,
-                    Title = "Nvidia 200NN",
+                    Title = "Nvidia Titan RTX",
                     Description = "GPU Nvidia",
+                    ImageName = "Titan_RTX.jpg",
+                    Active = true,
                     Price = 475,
                     Quantity = 6
                 });
@@ -147,6 +165,8 @@ namespace DataAccessWeb.Data
                     Id = 10,
                     Title = "Carpet",
                     Description = "Big Green Carpet",
+                    ImageName = "greenCarpetMan.jpg",
+                    Active = true,
                     Price = 190,
                     Quantity = 3
                 });
