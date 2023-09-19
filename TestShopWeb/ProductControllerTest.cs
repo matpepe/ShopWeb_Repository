@@ -37,6 +37,16 @@ namespace TestShopWeb
         [Fact]
         public void Details_GetProductDetails_WhenModelIsNotNull()
         {
+            var p = new Product
+            {
+                Id = 1,
+                Title = "NotNull",
+                Active = true,
+                CreatedDatetime = DateTime.Now,
+                Quantity = 1,
+                Price = 1,
+                Description = ""
+            };
             // Arrange
             var controller = new ProductController(_context);
             //int id = 2;
@@ -53,8 +63,7 @@ namespace TestShopWeb
         public void Add_AddsProductAndReturnsARedirect_WhenModelIsNotNull()
         {
             // Arrange
-            var controller = new ProductController(_context);
-            Product p = new Product()
+            var p = new Product
             {
                 Id = 1,
                 Title = "NotNull",
@@ -64,6 +73,8 @@ namespace TestShopWeb
                 Price = 1,
                 Description = ""
             };
+
+            var controller = new ProductController(_context);
             // Act
             var result = controller.Create(p);
             // Assert
@@ -71,16 +82,17 @@ namespace TestShopWeb
             Assert.Equal("Index", redirectToActionResult.ActionName);
         }
 
-        //[Fact]
-        //public void Add_AddsProductAndReturnsBadRequest_WhenModelIsNull()
-        //{
-        //    // Arrange
-        //    var controller = new ProductController();
-        //    // Act
-        //    var result = controller.Create(null);
-        //    // Assert
-        //    var viewResult = Assert.IsType<ViewResult>(result);
-        //}
+        [Fact]
+        public void Add_AddsProductAndReturnsBadRequest_WhenModelIsNull()
+        {
+            // Arrange
+            var controller = new ProductController(_context);
+            // Act
+            var result = controller.Create(null);
+            // Assert
+            var viewResult = Assert.IsType<ViewResult>(result);
+            Assert.Null(viewResult);
+        }
 
     }
 }

@@ -75,8 +75,8 @@ IF NOT EXISTS (SELECT 1 FROM dbo.Product)
 IF NOT EXISTS (SELECT 1 FROM dbo.Role)
 	DBCC CHECKIDENT ('dbo.Role', RESEED, 0)
 
-UPDATE dbo.AspNetUsers SET EmailConfirmed = 1 
-WHERE Id = @AdminID
+UPDATE dbo.AspNetUsers SET EmailConfirmed = 1 WHERE Id = @AdminID
+UPDATE dbo.Category SET ApplicationUser = 'Admin@gmail.uk'
 
 UPDATE 
 	dbo.Product 
@@ -85,6 +85,7 @@ SET
 	FROM dbo.AspNetUsers AS A 
 	WHERE 
 		A.UserName = 'Admin@gmail.uk' -- defaultni Admin kreira Proizvode
+
 
 GO
 
